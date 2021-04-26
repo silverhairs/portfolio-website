@@ -25,10 +25,10 @@ Brightness _getBrightness() {
 void _saveBrightness(Brightness value) {
   switch (value) {
     case Brightness.dark:
-      _displayBox.put("display", "dark");
+      _displayBox.put("brightness", "dark");
       break;
     default:
-      _displayBox.put("display", "light");
+      _displayBox.put("brightness", "light");
       break;
   }
 }
