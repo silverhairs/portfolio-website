@@ -17,21 +17,20 @@ class ProjectAdapter extends TypeAdapter<Project> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Project(
-      id: fields[0] as String,
+      stars: fields[0] as int,
       title: fields[1] as String,
       description: fields[2] as String,
       url: fields[3] as String,
-      technologies: (fields[5] as List).cast<String?>(),
-      screenshotURLs: (fields[4] as List).cast<String?>(),
+      language: fields[4] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Project obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(5)
       ..writeByte(0)
-      ..write(obj.id)
+      ..write(obj.stars)
       ..writeByte(1)
       ..write(obj.title)
       ..writeByte(2)
@@ -39,9 +38,7 @@ class ProjectAdapter extends TypeAdapter<Project> {
       ..writeByte(3)
       ..write(obj.url)
       ..writeByte(4)
-      ..write(obj.screenshotURLs)
-      ..writeByte(5)
-      ..write(obj.technologies);
+      ..write(obj.language);
   }
 
   @override

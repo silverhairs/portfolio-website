@@ -11,6 +11,7 @@ class App extends HookWidget {
     final brightness = useProvider(ProviderService.brightnessProvider);
     return MaterialApp(
       theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.nightBlue,
         brightness: brightness,
         primarySwatch: MaterialColor(0xff0a0a0a, darkSwatch),
         accentColor: AppColors.green,

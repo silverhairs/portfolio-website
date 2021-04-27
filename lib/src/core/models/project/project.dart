@@ -4,7 +4,7 @@ part 'project.g.dart';
 @HiveType(typeId: 2)
 class Project {
   @HiveField(0)
-  final String id;
+  final int stars;
   @HiveField(1)
   final String title;
   @HiveField(2)
@@ -12,16 +12,22 @@ class Project {
   @HiveField(3)
   final String url;
   @HiveField(4)
-  final List<String?> screenshotURLs;
-  @HiveField(5)
-  final List<String?> technologies;
+  final String? language;
 
   const Project({
-    required this.id,
+    this.stars: 0,
     required this.title,
     required this.description,
     required this.url,
-    required this.technologies,
-    this.screenshotURLs: const [],
+    required this.language,
   });
+
+  static Project fromMap(Map data) => Project(
+        stars:
+            data['stars'] is String ? int.parse(data['stars']) : data['stars'],
+        title: data['repo'],
+        description: data['description'],
+        url: "https://github.com/silverhairs/${data['repo']}",
+        language: data['language'],
+      );
 }

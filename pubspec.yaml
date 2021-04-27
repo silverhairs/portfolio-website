@@ -19,6 +19,8 @@ dependencies:
   hive: ^2.0.4
   hive_flutter: ^1.0.0
   hooks_riverpod: ^0.14.0+2
+  http: ^0.13.1
+  lottie: ^1.0.1
 
 dev_dependencies:
   flutter_test:
@@ -29,6 +31,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/
+    - assets/lotties/
 
   fonts:
     - family: Muli
@@ -36,5 +39,5 @@ flutter:
         - asset: assets/fonts/Muli.ttf
         - asset: assets/fonts/Muli-Bold.ttf
           weight: 700
-          
+
   uses-material-design: true

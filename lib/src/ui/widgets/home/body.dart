@@ -60,7 +60,7 @@ class Body extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 16.0),
           child: Text(
-            "Mobile Engineer passionate about Dart, Flutter, React and Open Source. Exploring a bunch of flutter-related stuff.",
+            "Software Developer building stuff mostly with Flutter & React.\n Watching animes in my free time.",
             textAlign: TextAlign.center,
             style: Theme.of(context)
                 .textTheme
@@ -150,12 +150,13 @@ class Body extends StatelessWidget {
                 flex: 1,
                 child: ProjectsList(),
               ),
-              VerticalDivider(),
+              VerticalDivider(indent: 32),
               SizedBox(width: 4),
               Expanded(
                 flex: 2,
                 child: BlogPostsList(),
-              )
+              ),
+              SizedBox(height: 16),
             ],
           ),
         )

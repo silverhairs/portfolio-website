@@ -18,7 +18,6 @@ class Home extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final brightness = useProvider(ProviderService.brightnessProvider);
-    final isDarkTheme = useState(false);
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
@@ -33,25 +32,25 @@ class Home extends HookWidget {
         actions: [
           Icon(EvaIcons.sun, size: 20),
           Switch(
-            value: isDarkTheme.value,
+            value: brightness == Brightness.dark,
             onChanged: (state) {
-              isDarkTheme.value = state;
-              Brightness brightnessState = brightness;
-              if (isDarkTheme.value) {
-                brightnessState = Brightness.dark;
+              if (state) {
+                context
+                    .read(ProviderService.brightnessProvider.notifier)
+                    .setBrightness(Brightness.dark);
               } else {
-                brightnessState = Brightness.light;
+                context
+                    .read(ProviderService.brightnessProvider.notifier)
+                    .setBrightness(Brightness.light);
               }
-              context
-                  .read(ProviderService.brightnessProvider.notifier)
-                  .setBrightness(brightnessState);
-              print(brightness);
             },
           ),
           Icon(
             EvaIcons.moon,
             size: 20,
-            color: isDarkTheme.value ? AppColors.green : AppColors.lightGrey,
+            color: brightness == Brightness.dark
+                ? AppColors.green
+                : AppColors.lightGrey,
           ),
           SizedBox(width: _getContainerWidth(context) * 0.08)
         ],
@@ -72,7 +71,7 @@ class Home extends HookWidget {
                       color: AppColors.darkBlue,
                     ),
                     Expanded(
-                      child: Container(color: AppColors.black),
+                      child: Container(color: AppColors.nightBlue),
                     ),
                   ],
                 ),

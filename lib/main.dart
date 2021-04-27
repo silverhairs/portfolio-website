@@ -11,8 +11,10 @@ Future<void> main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(UserProfileAdapter());
   Hive.registerAdapter(ArticleAdapter());
+  Hive.registerAdapter(ProjectAdapter());
   await Hive.openBox('display');
   await Hive.openBox<UserProfile>('profile');
   await Hive.openBox<Article>('articles');
+  await Hive.openBox<Project>("projects");
   return runApp(ProviderScope(child: App()));
 }
