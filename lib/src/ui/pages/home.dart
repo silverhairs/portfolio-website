@@ -4,8 +4,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:website/src/core/services/all.dart';
 import 'package:website/src/palette.dart';
-import 'package:website/src/ui/widgets/home/body.dart';
-import 'package:website/src/ui/widgets/home/profile_picture.dart';
+import 'package:website/src/ui/widgets/home/all.dart'
+    show PageCoating, PageFoundation;
 import 'package:website/src/utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -60,56 +60,8 @@ class Home extends HookWidget {
           physics: ClampingScrollPhysics(),
           child: Stack(
             children: [
-              Container(
-                height: screenHeight(context) - kToolbarHeight,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Container(
-                      height: 200,
-                      width: double.infinity,
-                      color: AppColors.darkBlue,
-                    ),
-                    Expanded(
-                      child: Container(color: AppColors.nightBlue),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 60),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Stack(
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          margin: EdgeInsets.only(top: 64),
-                          width: _getContainerWidth(context),
-                          constraints: BoxConstraints(
-                            maxWidth: 975,
-                          ),
-                          padding: EdgeInsets.only(
-                            left: 16,
-                            right: 16,
-                            bottom: 16,
-                            top: 16,
-                          ),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              color: Theme.of(context).primaryColor),
-                          child: Body(),
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.topCenter,
-                        child: ProfilePicture(),
-                      )
-                    ],
-                  ),
-                ),
-              ),
+              PageFoundation(),
+              PageCoating(bodyWidth: _getContainerWidth(context)),
             ],
           ),
         ),

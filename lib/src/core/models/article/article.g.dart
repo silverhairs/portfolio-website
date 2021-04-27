@@ -17,31 +17,37 @@ class ArticleAdapter extends TypeAdapter<Article> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Article(
-      title: fields[0] as String,
-      tags: (fields[1] as List).cast<String?>(),
-      reactions: fields[3] as int,
-      publishDate: fields[2] as DateTime?,
-      readTime: fields[4] as String,
-      isRead: fields[5] as bool,
+      title: fields[0] as String?,
+      description: fields[1] as String?,
+      pubDate: fields[2] as String?,
+      url: fields[3] as String,
+      commentsCount: fields[4] as int,
+      reactionsCount: fields[5] as int,
+      readingTimeMinutes: fields[6] as int,
+      tags: (fields[7] as List?)?.cast<String>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, Article obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
-      ..write(obj.tags)
+      ..write(obj.description)
       ..writeByte(2)
-      ..write(obj.publishDate)
+      ..write(obj.pubDate)
       ..writeByte(3)
-      ..write(obj.reactions)
+      ..write(obj.url)
       ..writeByte(4)
-      ..write(obj.readTime)
+      ..write(obj.commentsCount)
       ..writeByte(5)
-      ..write(obj.isRead);
+      ..write(obj.reactionsCount)
+      ..writeByte(6)
+      ..write(obj.readingTimeMinutes)
+      ..writeByte(7)
+      ..write(obj.tags);
   }
 
   @override
