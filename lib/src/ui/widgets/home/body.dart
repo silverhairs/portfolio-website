@@ -13,15 +13,34 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Map<String, String>> popUpItems = [
+      {'type': "cv", 'text': "My resume 📜"},
+      {'type': "ping", 'text': "Ping Me 🔔"},
+    ];
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          height: 104,
+          height: 100,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 12),
+                child: PopupMenuButton<String>(
+                  child: Icon(EvaIcons.moreHorizotnal, color: AppColors.grey),
+                  itemBuilder: (context) => popUpItems
+                      .map(
+                        (item) => PopupMenuItem<String>(
+                          child: Text(item['text']!),
+                          value: item['type'],
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
+              SizedBox(width: 16),
               TextButton(
                 child: Text("Contact Me"),
                 onPressed: () => print(
