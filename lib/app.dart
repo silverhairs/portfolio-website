@@ -17,22 +17,32 @@ class App extends HookWidget {
         fontFamily: 'Muli',
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                  (states) => AppColors.green),
-              padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
-                (states) => EdgeInsets.all(20),
-              ),
-              textStyle: MaterialStateProperty.resolveWith<TextStyle>(
-                (states) => Theme.of(context).textTheme.bodyText2!.copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                    color: AppColors.white),
-              ),
-              shape: MaterialStateProperty.resolveWith(
-                (states) => RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6)),
-              )),
+            backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                (states) => AppColors.green),
+            padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
+              (states) => EdgeInsets.all(20),
+            ),
+            textStyle: MaterialStateProperty.resolveWith<TextStyle>(
+              (states) => Theme.of(context).textTheme.bodyText2!.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: AppColors.white),
+            ),
+            shape: MaterialStateProperty.resolveWith(
+              (states) => RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(6)),
+            ),
+          ),
         ),
+        textSelectionTheme: Theme.of(context).textSelectionTheme.copyWith(
+              selectionColor: AppColors.green,
+              selectionHandleColor: AppColors.darkBlue,
+            ),
+        popupMenuTheme: Theme.of(context).popupMenuTheme.copyWith(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
       ),
       home: Home(),
       debugShowCheckedModeBanner: false,

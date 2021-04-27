@@ -72,8 +72,8 @@ class Home extends HookWidget {
                       color: AppColors.darkBlue,
                     ),
                     Expanded(
-                      child: Container(color: AppColors.nightBlue),
-                    )
+                      child: Container(color: AppColors.black),
+                    ),
                   ],
                 ),
               ),

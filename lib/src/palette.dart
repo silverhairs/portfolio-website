@@ -5,6 +5,7 @@ class AppColors {
   static final Color nightBlue = Color(0xff0a0a0a);
   static final Color darkBlue = Color(0xff001e2e);
   static final Color green = Color(0xff33ff7b);
+  static final Color red = Color(0xffff4f49);
   static final Color grey = Color(0xff787878);
   static final Color lightGrey = Color(0xffd4e3e3);
   static final Color white = Color(0xffffffff);
