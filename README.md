@@ -5,7 +5,7 @@
 
 ## TODO
  - [x] API where projects should be collected from
- - [ ] API where articles should be collected from
+ - [x] API where articles should be collected from
  - [ ] Pindo API to receive SMS when someone "Pings Me"
  - [ ] Link with backend where custom changes should be done (user profile, projects that are not from github etc.)
  - [x] Meta tags
